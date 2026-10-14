@@ -9,6 +9,10 @@
 typedef struct { char *field[FIELDS]; } Photo;
 static Photo photos[LIMIT];
 static size_t count;
+static void cleanup(void) {
+    for (size_t i = 0; i < LIMIT; i++)
+        for (size_t f = 0; f < FIELDS; f++) free(photos[i].field[f]);
+}
 
 static void escape(const char *s) {
     for (; *s; s++) {
@@ -81,9 +85,9 @@ static void gallery(void) {
 }
 int main(int argc, char **argv) {
     if (argc != 3) { fputs("Usage: gallery data/photos.tsv templates/page.html > index.html\n", stderr); return 1; }
-    if (!read_photos(argv[1])) return 1;
+    if (!read_photos(argv[1])) { cleanup(); return 1; }
     FILE *template = fopen(argv[2], "rb"); char line[LINE]; int markers = 0;
-    if (!template) { perror(argv[2]); return 1; }
+    if (!template) { perror(argv[2]); cleanup(); return 1; }
     while (fgets(line, sizeof line, template)) {
         char *marker = strstr(line, "@@GALLERY@@");
         if (marker) { *marker = 0; fputs(line, stdout); gallery(); fputs(marker + 11, stdout); markers++; }
@@ -91,7 +95,7 @@ int main(int argc, char **argv) {
     }
     int failed = ferror(template) || markers != 1;
     fclose(template);
-    for (size_t i = 0; i < LIMIT; i++) for (size_t f = 0; f < FIELDS; f++) free(photos[i].field[f]);
+    cleanup();
     if (fflush(stdout) == EOF) failed = 1;
     if (failed) fputs("Template must contain exactly one gallery marker; check output before replacing index.html.\n", stderr);
     return failed ? 1 : 0;
