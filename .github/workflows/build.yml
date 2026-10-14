@@ -1,0 +1,34 @@
+name: Build and check portfolio
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile C11 generator with strict warnings and sanitizers
+        run: cc -std=c11 -Wall -Wextra -Werror -pedantic -fsanitize=address,undefined -g tools/gallery.c -o /tmp/gallery
+      - name: Generate gallery
+        run: /tmp/gallery data/photos.tsv templates/page.html > index.html
+      - name: Verify invalid manifests fail and HTML is escaped
+        shell: bash
+        run: |
+          printf 'invalid\n' > /tmp/bad.tsv
+          if /tmp/gallery /tmp/bad.tsv templates/page.html > /tmp/bad.html; then exit 1; fi
+          sed 's/The watchful/<Test\&"title>/' data/photos.tsv > /tmp/escaped.tsv
+          /tmp/gallery /tmp/escaped.tsv templates/page.html > /tmp/escaped.html
+          grep -q '&lt;Test&amp;&quot;title&gt;' /tmp/escaped.html
+          ! grep -Eq '<script|onclick=|@@GALLERY@@' index.html
+          test "$(grep -c '<article class="encounter"' index.html)" = 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: photography-portfolio
+          path: |
+            index.html
+            styles.css
+            assets/
+          retention-days: 7

@@ -1,26 +1,39 @@
-# Neil’s Photos
+# Photography Portfolio
 
-Private wildlife photography portfolio for Neil / @neiltakesflicks.
+Private wildlife portfolio for Neil / @neiltakesflicks. HTML and CSS in the browser, with a dependency-free C11 static gallery generator. No JavaScript, TypeScript, Python, framework, or runtime backend.
 
-## Stack
+## Features
 
-Plain HTML and CSS. No JavaScript, TypeScript, Python, frameworks, package manager, build step, or backend. Open `index.html` directly in a browser.
+- Editorial gallery and compact contact-sheet mode.
+- Native radio controls filter birds / mammals, with keyboard navigation.
+- Native HTML popover viewer: Escape to close, previous/next buttons, background scroll lock.
+- CSS light/dark toggle. Theme is session-only; it is not saved across reloads.
+- Lazy-loaded images and expandable camera metadata.
+- GitHub Actions compiles C with strict warnings and address/undefined-behaviour sanitizers, validates input handling and HTML escaping, and produces a downloadable static-site artifact. Nothing is deployed.
 
-The numbered gallery uses native radio inputs and CSS. Tab to the gallery and use arrow keys to select images. Enlarged views use HTML fragment links; use Close to return.
+## Build
 
-## Adding original photos
+With a C11 compiler installed, from the repository root:
 
-1. Place web-ready photographs in `assets/photos/`.
-2. Replace the sample image URLs in `index.html`, including their enlarged views.
-3. Update the photograph names and alt text.
-4. Remove the illustrative-photo badges and draft notice when all sample images are replaced.
+```sh
+cc -std=c11 -Wall -Wextra -Werror -pedantic tools/gallery.c -o gallery
+./gallery data/photos.tsv templates/page.html > index.tmp.html
+# Only replace the current page after a successful generator exit.
+mv index.tmp.html index.html
+```
 
-Keep original full-resolution files backed up separately. Avoid committing private location metadata if you do not want to share it when the site eventually becomes public.
+Open `index.html` in a current browser. Native popovers and CSS `:has()` require a modern browser. Older browsers can still see the gallery but may not support its enhanced controls.
 
-## Draft assets
+## Add photographs
 
-The current wildlife photographs are externally hosted Unsplash layout samples, not Neil’s work. They are clearly labelled in the page and will be replaced.
+Place web-ready images in `assets/photos/`, then edit `data/photos.tsv`. Each line contains exactly ten nonempty tab-separated fields:
 
-## Privacy and hosting
+`Title | Species | Category | Image URL/path | Alt text | Camera | Lens | Shutter | Aperture | ISO`
 
-This repository is intended to stay private. No deployment workflow or GitHub Pages configuration is included. The earlier private Sites draft is separate and has not been updated by this repository-only change.
+The separators above illustrate fields; the actual file uses tabs. Categories are `birds` or `mammals`. Images must use `https://` or a path beginning `assets/photos/`. Up to 256 photos are supported. No tabs or newlines inside fields. Use `Not supplied` for unknown metadata. Rebuild after editing the manifest or `templates/page.html`.
+
+Current Unsplash photos are illustrative samples, not Neil’s work. When adding original work, remove the sample badge in `tools/gallery.c` and update the draft notice in the template. Camera fields are manually supplied: automatic EXIF extraction and image compression are future work, not implemented capabilities. Keep original photo backups separately.
+
+## Privacy
+
+Keep this repository private. No GitHub Pages or deployment workflow is configured. The earlier private Sites draft remains separate. CI artifacts are available to users with repository access and expire after seven days.
