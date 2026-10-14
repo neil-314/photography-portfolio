@@ -30,9 +30,9 @@ Place web-ready images in `assets/photos/`, then edit `data/photos.tsv`. Each li
 
 `Title | Species | Category | Image URL/path | Alt text | Camera | Lens | Shutter | Aperture | ISO`
 
-The separators above illustrate fields; the actual file uses tabs. Categories are `birds` or `mammals`. Images must use `https://` or a path beginning `assets/photos/`. Up to 256 photos are supported. No tabs or newlines inside fields. Use `Not supplied` for unknown metadata. Rebuild after editing the manifest or `templates/page.html`.
+The separators above illustrate fields; the actual file uses tabs. Categories are `birds`, `mammals`, or `landscapes`. Images must use `https://` or a path beginning `assets/photos/`. Up to 256 photos are supported. No tabs or newlines inside fields. Use `Not supplied` for unknown metadata. Rebuild after editing the manifest or `templates/page.html`.
 
-Current Unsplash photos are illustrative samples, not Neil’s work. When adding original work, remove the sample badge in `tools/gallery.c` and update the draft notice in the template. Camera fields are manually supplied: automatic EXIF extraction and image compression are future work, not implemented capabilities. Keep original photo backups separately.
+The collection contains 45 original photographs by Neil, imported from 46 supplied files with one exact duplicate removed. Four HEIC files were converted for browser compatibility. Web-ready WebP copies and smaller responsive versions are included; originals remain outside the repository. Metadata was extracted during import where available, with location metadata omitted from exported images. `data/photo-sources.json` maps website files to original filenames. The C generator reads the prepared manifest; it does not itself compress images or extract EXIF. Keep original photo backups separately.
 
 ## Privacy
 

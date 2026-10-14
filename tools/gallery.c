@@ -46,7 +46,7 @@ static int read_photos(const char *path) {
             if (end) cursor = end + 1;
         }
         const char *category = photos[count].field[2], *url = photos[count].field[3];
-        if (strcmp(category, "birds") && strcmp(category, "mammals")) goto invalid;
+        if (strcmp(category, "birds") && strcmp(category, "mammals") && strcmp(category, "landscapes")) goto invalid;
         if (strncmp(url, "https://", 8) && strncmp(url, "assets/photos/", 14)) goto invalid;
         count++;
     }
@@ -58,6 +58,13 @@ invalid:
 }
 static void image(Photo *p, int eager) {
     fputs("<img src=\"", stdout); escape(p->field[3]);
+    size_t length = strlen(p->field[3]);
+    if (!strncmp(p->field[3], "assets/photos/", 14) && length > 5 && !strcmp(p->field[3] + length - 5, ".webp")) {
+        char small[LINE];
+        snprintf(small, sizeof small, "%.*s-small.webp", (int)(length - 5), p->field[3]);
+        fputs("\" srcset=\"", stdout); escape(small); fputs(" 800w, ", stdout);
+        escape(p->field[3]); fputs(" 1800w\" sizes=\"(max-width: 700px) 90vw, 92vw", stdout);
+    }
     fputs("\" alt=\"", stdout); escape(p->field[4]);
     printf("\" loading=\"%s\" decoding=\"async\">", eager ? "eager" : "lazy");
 }
@@ -68,14 +75,14 @@ static void gallery(void) {
         fputs("<article class=\"encounter\" data-category=\"", stdout); escape(p->field[2]);
         printf("\"><button class=\"image-open\" popovertarget=\"view-%zu\" aria-label=\"Enlarge ", i + 1);
         escape(p->field[1]); fputs(" photograph\">", stdout); image(p, i == 0);
-        fputs("<span class=\"badge\">SAMPLE / DRAFT</span></button><div class=\"frame-label\"><span>", stdout);
+        fputs("</button><div class=\"frame-label\"><span>", stdout);
         printf("%02zu</span><h2>", i + 1); escape(p->field[0]);
         fputs("</h2><span>", stdout); escape(p->field[1]);
         fputs("</span></div><details><summary>Photo details</summary><dl>", stdout);
         for (size_t f = 5; f < FIELDS; f++) {
             printf("<dt>%s</dt><dd>", names[f - 5]); escape(p->field[f]); fputs("</dd>", stdout);
         }
-        fputs("</dl><p class=\"hint\">Camera details are supplied in the manifest; automatic EXIF extraction is not enabled.</p></details>", stdout);
+        fputs("</dl></details>", stdout);
         printf("<div class=\"photo-viewer\" id=\"view-%zu\" popover><div class=\"viewer-bar\"><span>", i + 1);
         escape(p->field[0]);
         printf("</span><button popovertarget=\"view-%zu\" popovertargetaction=\"hide\">Close ×</button></div>", i + 1);

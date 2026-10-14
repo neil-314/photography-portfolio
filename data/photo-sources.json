@@ -1,0 +1,272 @@
+[
+  {
+    "image": "assets/photos/neil-01.webp",
+    "original_filename": "IMG_6789.JPG",
+    "title": "Lion at rest",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-30.webp",
+    "original_filename": "IMG_6819.JPG",
+    "title": "Under blue hills",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-07.webp",
+    "original_filename": "IMG_0305.JPG",
+    "title": "Water and stone",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-18.webp",
+    "original_filename": "IMG_6799.JPG",
+    "title": "Spotted stillness",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-21.webp",
+    "original_filename": "IMG_6794.JPG",
+    "title": "A flash of colour",
+    "category": "birds"
+  },
+  {
+    "image": "assets/photos/neil-04.webp",
+    "original_filename": "IMG_0282(1).JPG",
+    "title": "Among the branches",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-32.webp",
+    "original_filename": "IMG_9784.HEIC",
+    "title": "Falling water",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-37.webp",
+    "original_filename": "IMG_6841.JPG",
+    "title": "Together",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-31.webp",
+    "original_filename": "IMG_0270.JPG",
+    "title": "Small lookout",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-02.webp",
+    "original_filename": "IMG_6769.JPG",
+    "title": "Across the grass",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-03.webp",
+    "original_filename": "DSC_0883.JPG",
+    "title": "Last light",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-05.webp",
+    "original_filename": "IMG_6755.JPG",
+    "title": "Above the grassland",
+    "category": "birds"
+  },
+  {
+    "image": "assets/photos/neil-06.webp",
+    "original_filename": "IMG_6813.JPG",
+    "title": "A curious glance",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-08.webp",
+    "original_filename": "IMG_6811.JPG",
+    "title": "A quiet moment",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-09.webp",
+    "original_filename": "IMG_0309.JPG",
+    "title": "Ridges in blue",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-10.webp",
+    "original_filename": "IMG_6780.JPG",
+    "title": "Out of the shade",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-11.webp",
+    "original_filename": "DSC_0917.JPG",
+    "title": "Moon over the ridge",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-12.webp",
+    "original_filename": "IMG_6836.JPG",
+    "title": "Family circle",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-13.webp",
+    "original_filename": "IMG_6761.JPG",
+    "title": "Head on",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-14.webp",
+    "original_filename": "IMG_0205.HEIC",
+    "title": "Still water",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-15.webp",
+    "original_filename": "IMG_6792.JPG",
+    "title": "In profile",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-16.webp",
+    "original_filename": "IMG_6770.JPG",
+    "title": "On the move",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-17.webp",
+    "original_filename": "IMG_6776.JPG",
+    "title": "Through the undergrowth",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-19.webp",
+    "original_filename": "IMG_0283.JPG",
+    "title": "At the forest edge",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-20.webp",
+    "original_filename": "IMG_0213.HEIC",
+    "title": "Evening reflection",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-22.webp",
+    "original_filename": "IMG_6768.JPG",
+    "title": "Looking back",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-23.webp",
+    "original_filename": "IMG_0311.JPG",
+    "title": "Beyond the pines",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-24.webp",
+    "original_filename": "IMG_6793.JPG",
+    "title": "Unhurried",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-25.webp",
+    "original_filename": "IMG_6772.JPG",
+    "title": "Open grassland",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-26.webp",
+    "original_filename": "IMG_6787.JPG",
+    "title": "Through tall grass",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-27.webp",
+    "original_filename": "IMG_6773.JPG",
+    "title": "Eyes on the lens",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-28.webp",
+    "original_filename": "IMG_6775.JPG",
+    "title": "Golden light",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-29.webp",
+    "original_filename": "IMG_6844.JPG",
+    "title": "Close company",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-33.webp",
+    "original_filename": "IMG_6824.JPG",
+    "title": "Stripes at rest",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-34.webp",
+    "original_filename": "IMG_0208.heic",
+    "title": "Day fading",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-35.webp",
+    "original_filename": "IMG_3148.JPG",
+    "title": "Before takeoff",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-36.webp",
+    "original_filename": "IMG_0304.JPG",
+    "title": "Across the lake",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-38.webp",
+    "original_filename": "IMG_6767.JPG",
+    "title": "Standing watch",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-39.webp",
+    "original_filename": "IMG_6777.JPG",
+    "title": "Through the shade",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-40.webp",
+    "original_filename": "IMG_0292.JPG",
+    "title": "Moonrise",
+    "category": "landscapes"
+  },
+  {
+    "image": "assets/photos/neil-41.webp",
+    "original_filename": "IMG_6809.JPG",
+    "title": "On the ground",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-42.webp",
+    "original_filename": "IMG_6812.JPG",
+    "title": "Held close",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-43.webp",
+    "original_filename": "IMG_6796.JPG",
+    "title": "A quiet perch",
+    "category": "birds"
+  },
+  {
+    "image": "assets/photos/neil-44.webp",
+    "original_filename": "IMG_6814.JPG",
+    "title": "Face to face",
+    "category": "mammals"
+  },
+  {
+    "image": "assets/photos/neil-45.webp",
+    "original_filename": "IMG_6821.JPG",
+    "title": "Listening",
+    "category": "mammals"
+  }
+]
