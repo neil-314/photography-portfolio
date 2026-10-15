@@ -15,6 +15,7 @@ jobs:
       - name: Generate gallery
         run: |
           /tmp/gallery data/photos.tsv templates/page.html > index.html
+          git diff --exit-code -- index.html
 
 
       - name: Verify invalid manifests fail and HTML is escaped
@@ -24,6 +25,8 @@ jobs:
           if /tmp/gallery /tmp/bad.tsv templates/page.html > /tmp/bad.html; then exit 1; fi
           printf 'title\tspecies\tbroken\n' > /tmp/partial.tsv
           if /tmp/gallery /tmp/partial.tsv templates/page.html > /tmp/partial.html; then exit 1; fi
+          awk 'BEGIN {FS=OFS="\t"} NR==1 {$11=600; $12=800} {print}' data/photos.tsv > /tmp/vertical.tsv
+          if /tmp/gallery /tmp/vertical.tsv templates/page.html > /tmp/vertical.html; then exit 1; fi
           sed 's/Lion at rest/<Test\&"title>/' data/photos.tsv > /tmp/escaped.tsv
           /tmp/gallery /tmp/escaped.tsv templates/page.html > /tmp/escaped.html
           grep -q '&lt;Test&amp;&quot;title&gt;' /tmp/escaped.html
