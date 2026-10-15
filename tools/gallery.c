@@ -5,7 +5,7 @@
 
 #define LIMIT 256
 #define LINE 16384
-#define FIELDS 10
+#define FIELDS 12
 typedef struct { char *field[FIELDS]; } Photo;
 static Photo photos[LIMIT];
 static size_t count;
@@ -50,12 +50,16 @@ static int read_photos(const char *path) {
         const char *region = photos[count].field[6];
         if (strcmp(region, "kenya") && strcmp(region, "alberta") && strcmp(region, "iceland")) goto invalid;
         if (strncmp(url, "https://", 8) && strncmp(url, "assets/photos/", 14)) goto invalid;
+        char *end_width, *end_height;
+        long width = strtol(photos[count].field[10], &end_width, 10);
+        long height = strtol(photos[count].field[11], &end_height, 10);
+        if (*end_width || *end_height || width <= height || height < 1 || width > 20000) goto invalid;
         count++;
     }
     if (ferror(in) || !count) goto invalid;
     fclose(in); return 1;
 invalid:
-    fprintf(stderr, "Invalid photo manifest near entry %zu (10 nonempty tab-separated fields required).\n", count + 1);
+    fprintf(stderr, "Invalid photo manifest near entry %zu (12 nonempty tab-separated fields, valid region, and horizontal dimensions required).\n", count + 1);
     fclose(in); return 0;
 }
 static void image(Photo *p, int eager) {
@@ -68,7 +72,7 @@ static void image(Photo *p, int eager) {
         escape(p->field[3]); fputs(" 1800w\" sizes=\"auto, (max-width: 700px) 92vw, 92vw", stdout);
     }
     fputs("\" alt=\"", stdout); escape(p->field[4]);
-    printf("\" loading=\"%s\" decoding=\"async\">", eager ? "eager" : "lazy");
+    printf("\" width=\"%s\" height=\"%s\" loading=\"%s\" decoding=\"async\">", p->field[10], p->field[11], eager ? "eager" : "lazy");
 }
 static void gallery(void) {
     const char *names[] = {"Shutter", "Aperture", "ISO"};
@@ -84,7 +88,7 @@ static void gallery(void) {
         fputs("</span></div><div class=\"photo-notes\"><span class=\"place\">", stdout);
         escape(p->field[6]);
         fputs("</span><details><summary>Frame notes +</summary><dl>", stdout);
-        for (size_t f = 7; f < FIELDS; f++) {
+        for (size_t f = 7; f < 10; f++) {
             printf("<dt>%s</dt><dd>", names[f - 7]); escape(p->field[f]); fputs("</dd>", stdout);
         }
         fputs("</dl><p>Photographed &amp; edited by Neil.</p></details></div>", stdout);
@@ -92,7 +96,7 @@ static void gallery(void) {
         escape(p->field[0]);
         printf("</span><button popovertarget=\"view-%zu\" popovertargetaction=\"hide\">Close ×</button></div>", i + 1);
         image(p, 0);
-        printf("<div class=\"viewer-nav\"><button popovertarget=\"view-%zu\">← Previous</button><span>%02zu / %02zu</span><button popovertarget=\"view-%zu\">Next →</button></div></div></article>\n", (i + count - 1) % count + 1, i + 1, count, (i + 1) % count + 1);
+        printf("<div class=\"viewer-nav\"><span>FRAME %02zu / %02zu</span><span>Photographed &amp; edited by Neil</span><span>Esc to return</span></div></div></article>\n", i + 1, count);
     }
 }
 int main(int argc, char **argv) {
