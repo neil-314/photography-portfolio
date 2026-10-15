@@ -31,3 +31,7 @@ body:has(#dark-theme:checked){--paper:#1b251e;--ink:#e3e8db;--muted:#b0bea3;--ru
 .gallery:has(#montenegro-frames:target):has(input[name=category]:not([value=all]):not([value=landscapes]):checked) .empty-message,.gallery:has(#corfu-frames:target):has(input[name=category]:not([value=all]):not([value=landscapes]):checked) .empty-message{display:block}
 .chapter-corfu{margin-top:85px}.location-filters{min-width:0}.sheet-control{white-space:nowrap}
 @media(max-width:700px){.chapter-corfu{margin-top:0}.location-filters{gap:16px 20px}.location-filters a{font-size:18px}}
+
+/* Montserrat completes the sixth journey. */
+.gallery:has(#montserrat-frames:target) .encounter:not([data-location=montserrat]){display:none}.gallery:has(#montserrat-frames:target) .location-filters a[href="#montserrat-frames"]{opacity:1;border-bottom:1px solid currentColor;padding-bottom:6px}.gallery:has(#montserrat-frames:target):has(input[name=category]:not([value=all]):not([value=landscapes]):checked) .empty-message{display:block}.chapter-montserrat{margin-top:170px}
+@media(max-width:1000px){.chapter-montserrat{margin-top:110px}}@media(max-width:700px){.chapter-montserrat{margin-top:0}}
