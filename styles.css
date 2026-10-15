@@ -24,3 +24,10 @@ body:has(#dark-theme:checked){--paper:#1b251e;--ink:#e3e8db;--muted:#b0bea3;--ru
 
 /* Journey links are bookmarkable and select the matching photo collection. */
 .route-anchor{display:block;height:0;scroll-margin-top:60px}.location-filters>p{flex:0 0 100%;color:var(--muted);margin-bottom:0}.location-filters a{font:20px var(--serif);opacity:.45;transition:opacity .3s}.location-filters a:hover{opacity:1}.gallery:not(:has(.route-anchor:target)) .location-filters a[href="#work"],.gallery:has(#kenya-frames:target) .location-filters a[href="#kenya-frames"],.gallery:has(#alberta-frames:target) .location-filters a[href="#alberta-frames"],.gallery:has(#iceland-frames:target) .location-filters a[href="#iceland-frames"]{opacity:1;border-bottom:1px solid currentColor;padding-bottom:6px}.location-filters{row-gap:14px}
+
+/* New travel routes keep the same native, bookmarkable gallery interaction. */
+.gallery:has(#montenegro-frames:target) .encounter:not([data-location=montenegro]),.gallery:has(#corfu-frames:target) .encounter:not([data-location=corfu]){display:none}
+.gallery:has(#montenegro-frames:target) .location-filters a[href="#montenegro-frames"],.gallery:has(#corfu-frames:target) .location-filters a[href="#corfu-frames"]{opacity:1;border-bottom:1px solid currentColor;padding-bottom:6px}
+.gallery:has(#montenegro-frames:target):has(input[name=category]:not([value=all]):not([value=landscapes]):checked) .empty-message,.gallery:has(#corfu-frames:target):has(input[name=category]:not([value=all]):not([value=landscapes]):checked) .empty-message{display:block}
+.chapter-corfu{margin-top:85px}.location-filters{min-width:0}.sheet-control{white-space:nowrap}
+@media(max-width:700px){.chapter-corfu{margin-top:0}.location-filters{gap:16px 20px}.location-filters a{font-size:18px}}

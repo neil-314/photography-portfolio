@@ -9,6 +9,15 @@
 typedef struct { char *field[FIELDS]; } Photo;
 static Photo photos[LIMIT];
 static size_t count;
+static const char *region_label(const char *region) {
+    if (!strcmp(region, "kenya")) return "Kenya";
+    if (!strcmp(region, "alberta")) return "Alberta";
+    if (!strcmp(region, "iceland")) return "Iceland";
+    if (!strcmp(region, "montenegro")) return "Bar, Montenegro";
+    if (!strcmp(region, "corfu")) return "Corfu, Greece";
+    if (!strcmp(region, "montserrat")) return "Montserrat, Spain";
+    return NULL;
+}
 static void cleanup(void) {
     for (size_t i = 0; i < LIMIT; i++)
         for (size_t f = 0; f < FIELDS; f++) free(photos[i].field[f]);
@@ -48,7 +57,7 @@ static int read_photos(const char *path) {
         const char *category = photos[count].field[2], *url = photos[count].field[3];
         if (strcmp(category, "birds") && strcmp(category, "mammals") && strcmp(category, "landscapes")) goto invalid;
         const char *region = photos[count].field[6];
-        if (strcmp(region, "kenya") && strcmp(region, "alberta") && strcmp(region, "iceland")) goto invalid;
+        if (!region_label(region)) goto invalid;
         if (strncmp(url, "https://", 8) && strncmp(url, "assets/photos/", 14)) goto invalid;
         char *end_width, *end_height;
         long width = strtol(photos[count].field[10], &end_width, 10);
@@ -86,7 +95,7 @@ static void gallery(void) {
         printf("%02zu</span><h2>", i + 1); escape(p->field[0]);
         fputs("</h2><span>", stdout); escape(p->field[1]);
         fputs("</span></div><div class=\"photo-notes\"><span class=\"place\">", stdout);
-        escape(p->field[6]);
+        escape(region_label(p->field[6]));
         fputs("</span><details><summary>Frame notes +</summary><dl>", stdout);
         for (size_t f = 7; f < 10; f++) {
             printf("<dt>%s</dt><dd>", names[f - 7]); escape(p->field[f]); fputs("</dd>", stdout);

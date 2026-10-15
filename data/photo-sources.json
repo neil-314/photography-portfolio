@@ -376,5 +376,53 @@
     "title": "Where the water falls",
     "category": "landscapes",
     "region": "iceland"
+  },
+  {
+    "image": "assets/photos/travel-08.webp",
+    "original_filename": "IMG_3942.HEIC",
+    "title": "Between cliffs and blue",
+    "category": "landscapes",
+    "region": "corfu",
+    "original_archive": "drive-download-20261015T000956Z-1-001.zip"
+  },
+  {
+    "image": "assets/photos/travel-30.webp",
+    "original_filename": "IMG_3881.JPG",
+    "title": "Beyond the old walls",
+    "category": "landscapes",
+    "region": "montenegro",
+    "original_archive": "drive-download-20261015T001033Z-1-001.zip"
+  },
+  {
+    "image": "assets/photos/travel-36.webp",
+    "original_filename": "IMG_3851.JPG",
+    "title": "A town among the hills",
+    "category": "landscapes",
+    "region": "montenegro",
+    "original_archive": "drive-download-20261015T001033Z-1-001.zip"
+  },
+  {
+    "image": "assets/photos/travel-40.webp",
+    "original_filename": "IMG_3854.JPG",
+    "title": "Stone and sunlight",
+    "category": "landscapes",
+    "region": "montenegro",
+    "original_archive": "drive-download-20261015T001033Z-1-001.zip"
+  },
+  {
+    "image": "assets/photos/travel-44.webp",
+    "original_filename": "IMG_3870.JPG",
+    "title": "The long way down",
+    "category": "landscapes",
+    "region": "montenegro",
+    "original_archive": "drive-download-20261015T001033Z-1-001.zip"
+  },
+  {
+    "image": "assets/photos/travel-49.webp",
+    "original_filename": "IMG_3853.JPG",
+    "title": "Above the valley",
+    "category": "landscapes",
+    "region": "montenegro",
+    "original_archive": "drive-download-20261015T001033Z-1-001.zip"
   }
 ]
