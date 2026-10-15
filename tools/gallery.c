@@ -47,6 +47,8 @@ static int read_photos(const char *path) {
         }
         const char *category = photos[count].field[2], *url = photos[count].field[3];
         if (strcmp(category, "birds") && strcmp(category, "mammals") && strcmp(category, "landscapes")) goto invalid;
+        const char *region = photos[count].field[6];
+        if (strcmp(region, "kenya") && strcmp(region, "alberta") && strcmp(region, "iceland")) goto invalid;
         if (strncmp(url, "https://", 8) && strncmp(url, "assets/photos/", 14)) goto invalid;
         count++;
     }
@@ -63,26 +65,29 @@ static void image(Photo *p, int eager) {
         char small[LINE];
         snprintf(small, sizeof small, "%.*s-small.webp", (int)(length - 5), p->field[3]);
         fputs("\" srcset=\"", stdout); escape(small); fputs(" 800w, ", stdout);
-        escape(p->field[3]); fputs(" 1800w\" sizes=\"(max-width: 700px) 90vw, 92vw", stdout);
+        escape(p->field[3]); fputs(" 1800w\" sizes=\"auto, (max-width: 700px) 92vw, 92vw", stdout);
     }
     fputs("\" alt=\"", stdout); escape(p->field[4]);
     printf("\" loading=\"%s\" decoding=\"async\">", eager ? "eager" : "lazy");
 }
 static void gallery(void) {
-    const char *names[] = {"Camera", "Lens", "Shutter", "Aperture", "ISO"};
+    const char *names[] = {"Shutter", "Aperture", "ISO"};
     for (size_t i = 0; i < count; i++) {
         Photo *p = &photos[i];
         fputs("<article class=\"encounter\" data-category=\"", stdout); escape(p->field[2]);
+        fputs("\" data-location=\"", stdout); escape(p->field[6]);
         printf("\"><button class=\"image-open\" popovertarget=\"view-%zu\" aria-label=\"Enlarge ", i + 1);
         escape(p->field[1]); fputs(" photograph\">", stdout); image(p, i == 0);
         fputs("</button><div class=\"frame-label\"><span>", stdout);
         printf("%02zu</span><h2>", i + 1); escape(p->field[0]);
         fputs("</h2><span>", stdout); escape(p->field[1]);
-        fputs("</span></div><details><summary>Photo details</summary><dl>", stdout);
-        for (size_t f = 5; f < FIELDS; f++) {
-            printf("<dt>%s</dt><dd>", names[f - 5]); escape(p->field[f]); fputs("</dd>", stdout);
+        fputs("</span></div><div class=\"photo-notes\"><span class=\"place\">", stdout);
+        escape(p->field[6]);
+        fputs("</span><details><summary>Frame notes +</summary><dl>", stdout);
+        for (size_t f = 7; f < FIELDS; f++) {
+            printf("<dt>%s</dt><dd>", names[f - 7]); escape(p->field[f]); fputs("</dd>", stdout);
         }
-        fputs("</dl></details>", stdout);
+        fputs("</dl><p>Photographed &amp; edited by Neil.</p></details></div>", stdout);
         printf("<div class=\"photo-viewer\" id=\"view-%zu\" popover><div class=\"viewer-bar\"><span>", i + 1);
         escape(p->field[0]);
         printf("</span><button popovertarget=\"view-%zu\" popovertargetaction=\"hide\">Close ×</button></div>", i + 1);

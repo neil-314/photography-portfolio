@@ -3,24 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Neil’s Photos — a wildlife photography portfolio.">
-<title>Neil’s Photos · Wildlife</title>
+<meta name="description" content="Wildlife and landscape photographs, taken and edited by Neil. A photographic journal through Kenya, Alberta, and Iceland. Photo editing inquiries welcome.">
+<meta name="theme-color" content="#17221b">
+<title>Neil’s Photos — Out there, looking closer.</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="assets/photos/iceland-10.webp" imagesrcset="assets/photos/iceland-10-small.webp 800w, assets/photos/iceland-10.webp 1800w" imagesizes="100vw">
 </head>
-<body><a class="skip" href="#work">Skip to photographs</a>
-<header><a class="brand" href="#"><span></span>neil’s photos</a><nav aria-label="Main navigation"><a href="#work">Photographs</a><a href="#about">About / contact ↗</a><label class="theme-control"><input type="checkbox" id="dark-theme"> Dark</label></nav></header>
-<main>
-<section class="intro"><div><p class="eyebrow">Wildlife &amp; landscapes · A photographic collection</p><h1>A little closer<br>to the <i>wild.</i></h1></div><p>A place for the quiet encounters.<br>The natural world, through my lens.</p></section>
-<section class="gallery" id="work" aria-label="Wildlife and landscape photograph gallery">
-<div class="toolbar micro"><span>Field notes / Selected frames</span><span>Take your time. Look closer.</span></div>
-<div class="controls"><fieldset class="filters"><legend>Explore the collection</legend><label><input type="radio" name="category" value="all" checked> All encounters</label><label><input type="radio" name="category" value="birds"> Birds</label><label><input type="radio" name="category" value="mammals"> Mammals</label><label><input type="radio" name="category" value="landscapes"> Landscapes</label></fieldset><label class="sheet-control"><input type="checkbox" id="contact-sheet"> Contact sheet</label></div>
+<body>
+<a class="skip" href="#work">Skip to photographs</a>
+<header class="masthead"><a class="brand" href="#top" aria-label="Neil’s Photos home">neil’s photos<span class="brand-dot">●</span></a><nav aria-label="Main navigation"><a href="#places">The journeys</a><a href="#work">The photographs</a><a href="#contact">Work with me ↗</a></nav><div class="preferences"><label><input type="checkbox" id="dark-theme"> Night</label><label><input type="checkbox" id="pause-motion"> Stillness</label></div></header>
+<main id="top">
+<section class="opening" aria-labelledby="opening-title">
+<div class="opening-images" aria-hidden="true"><img class="hero-frame hero-one" src="assets/photos/iceland-10.webp" srcset="assets/photos/iceland-10-small.webp 800w, assets/photos/iceland-10.webp 1800w" sizes="100vw" alt="" fetchpriority="high"><img class="hero-frame hero-two" src="assets/photos/neil-30.webp" alt="" loading="lazy"><img class="hero-frame hero-three" src="assets/photos/neil-07.webp" alt="" loading="lazy"></div>
+<div class="opening-shade"></div><div class="opening-top"><span class="mono">A photographic journal by Neil</span><span class="mono">Kenya / Alberta / Iceland</span></div>
+<div class="opening-copy"><p class="mono">Out there, looking closer.</p><h1 id="opening-title">Some places<br>stay <em>with you.</em></h1><a class="wander" href="#places"><span>Come along</span><span aria-hidden="true">↓</span></a></div>
+<div class="opening-bottom mono"><span>Photographed &amp; edited by me.</span><span>Wildlife. Wide horizons. Everything in between.</span></div>
+</section>
+<section class="journeys section-pad" id="places" aria-labelledby="places-title">
+<div class="section-heading"><p class="mono section-kicker">01 / The journeys</p><h2 id="places-title">Three places.<br><em>A thousand reasons to stop.</em></h2><p>From open grasslands to mountain lakes to the edge of the Atlantic. A few moments I brought home.</p></div>
+<div class="chapter-strip" aria-label="Browse the three journeys">
+<a class="chapter chapter-kenya" href="#chapter-kenya"><div class="chapter-image"><img src="assets/photos/neil-30.webp" alt="Elephant crossing open grassland with blue hills beyond" loading="lazy"></div><div class="chapter-caption"><span class="mono">01 / Kenya</span><span aria-hidden="true">↘</span></div><h3>In the company<br>of the wild.</h3><p>Maasai Mara · Amboseli · Nairobi National Park</p></a>
+<a class="chapter chapter-alberta" href="#chapter-alberta"><div class="chapter-image"><img src="assets/photos/neil-07.webp" alt="Turquoise lake surrounded by mountains in Alberta" loading="lazy"></div><div class="chapter-caption"><span class="mono">02 / Alberta</span><span aria-hidden="true">↘</span></div><h3>A little further<br>into the mountains.</h3><p>Banff &amp; Jasper · The Canadian Rockies</p></a>
+<a class="chapter chapter-iceland" href="#chapter-iceland"><div class="chapter-image"><img src="assets/photos/iceland-07.webp" alt="Black sand beach and sea stacks in Iceland" loading="lazy"></div><div class="chapter-caption"><span class="mono">03 / Iceland</span><span aria-hidden="true">↘</span></div><h3>At the edge<br>of everything.</h3><p>The south coast &amp; a little east</p></a>
+</div>
+<div class="journey-notes"><div id="chapter-kenya"><span class="mono">Kenya</span><p>Grasslands, close encounters, and wildlife on its own terms.</p><a href="#location-filters">Find the Kenya frames ↗</a></div><div id="chapter-alberta"><span class="mono">Alberta</span><p>Blue water, layered ridgelines, and the quiet between the trees.</p><a href="#location-filters">Find the Alberta frames ↗</a></div><div id="chapter-iceland"><span class="mono">Iceland</span><p>Waterfalls, dark shores, and landscapes that don’t quite feel real.</p><a href="#location-filters">Find the Iceland frames ↗</a></div></div>
+</section>
+<div class="interlude" aria-hidden="true"><div>Keep looking. <i>There’s more out there.</i> Keep looking. <i>There’s more out there.</i>&nbsp;</div></div>
+<section class="gallery section-pad" id="work" aria-labelledby="work-title">
+<div class="gallery-heading"><div><p class="mono section-kicker">02 / The photographs</p><h2 id="work-title">The things<br>I <em>stopped for.</em></h2></div><p>Every photograph here was taken and edited by me.<br>Open a frame. Stay a little longer.</p></div>
+<div class="controls" id="location-filters"><fieldset class="location-filters"><legend class="mono">Choose a journey</legend><label><input type="radio" name="location" value="all" checked><span>Everywhere</span></label><label><input type="radio" name="location" value="kenya"><span>Kenya</span></label><label><input type="radio" name="location" value="alberta"><span>Alberta</span></label><label><input type="radio" name="location" value="iceland"><span>Iceland</span></label></fieldset><label class="sheet-control"><input type="checkbox" id="contact-sheet"> Contact sheet ↗</label></div>
+<div class="secondary-controls"><fieldset class="filters"><legend class="sr-only">Filter by subject</legend><label><input type="radio" name="category" value="all" checked><span>All subjects</span></label><label><input type="radio" name="category" value="birds"><span>Birds</span></label><label><input type="radio" name="category" value="mammals"><span>Mammals</span></label><label><input type="radio" name="category" value="landscapes"><span>Landscapes</span></label></fieldset><span class="mono archive-note">An ongoing collection / Landscape format only</span></div>
 <div class="collection">
 @@GALLERY@@
 </div>
-<p class="hint">Select a photograph to look closer. Escape closes the viewer. Tab moves between controls.</p>
+<p class="empty-message">No frames in this combination yet. Choose “All subjects” or another journey.</p><div class="gallery-end"><span class="mono">You’ve reached the end. For now.</span><a href="#location-filters">Take another route ↑</a></div>
 </section>
-<section class="about" id="about"><p class="eyebrow">Behind the camera</p><div><h2>I’m Neil.<br>Wildlife, landscapes, and the moments that make me stop and look.</h2><a class="social" href="https://www.instagram.com/neiltakesflicks/" target="_blank" rel="noopener noreferrer">Follow the field notes · @neiltakesflicks ↗</a></div></section>
+<section class="contact section-pad" id="contact" aria-labelledby="contact-title"><p class="mono section-kicker">03 / Behind the photographs</p><div class="contact-grid"><div><h2 id="contact-title">I’m Neil.<br>I take the photo.<br><em>Then I find the feeling.</em></h2><p>I photograph wildlife and landscapes, and edit every image you see here myself. The edit is part of how I tell the story.</p></div><div class="contact-note"><span class="mono">Have a photo of your own?</span><h3>Let’s see what<br>we can bring out of it.</h3><p>If you’d like me to edit your photos, get in touch. Tell me what you have and the look you’re after.</p><a class="email-link" href="mailto:paineil.1008@gmail.com?subject=Photo%20editing%20inquiry">paineil.1008@gmail.com <span aria-hidden="true">↗</span></a><a class="instagram" href="https://www.instagram.com/neiltakesflicks/" target="_blank" rel="noopener noreferrer">More from the field / @neiltakesflicks ↗</a></div></div></section>
 </main>
-<footer><span>© 2026 Neil’s Photos</span><span>Wildlife &amp; landscapes / An ongoing collection</span><a href="#">Back to top ↑</a></footer>
+<footer><span>© 2026 Neil · All photographs &amp; edits by me.</span><a href="#top">Back to the beginning ↑</a></footer>
 </body>
 </html>
