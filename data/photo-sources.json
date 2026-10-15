@@ -293,8 +293,9 @@
     "title": "A curious glance",
     "category": "wildlife",
     "region": "kenya",
-    "location": "Kenya",
-    "location_precision": "regional"
+    "location": "Maasai Mara, Kenya",
+    "location_precision": "confirmed",
+    "location_basis": "Neil confirmed all baboon photographs were taken in Maasai Mara on 2026-10-15"
   },
   {
     "image": "assets/photos/iceland-04.webp",
@@ -321,8 +322,9 @@
     "title": "A quiet moment",
     "category": "wildlife",
     "region": "kenya",
-    "location": "Kenya",
-    "location_precision": "regional"
+    "location": "Maasai Mara, Kenya",
+    "location_precision": "confirmed",
+    "location_basis": "Neil confirmed all baboon photographs were taken in Maasai Mara on 2026-10-15"
   },
   {
     "image": "assets/photos/travel-30.webp",
@@ -380,8 +382,9 @@
     "title": "Family circle",
     "category": "wildlife",
     "region": "kenya",
-    "location": "Kenya",
-    "location_precision": "regional"
+    "location": "Maasai Mara, Kenya",
+    "location_precision": "confirmed",
+    "location_basis": "Neil confirmed all baboon photographs were taken in Maasai Mara on 2026-10-15"
   },
   {
     "image": "assets/photos/travel-49.webp",
@@ -574,8 +577,9 @@
     "title": "On the ground",
     "category": "wildlife",
     "region": "kenya",
-    "location": "Kenya",
-    "location_precision": "regional"
+    "location": "Maasai Mara, Kenya",
+    "location_precision": "confirmed",
+    "location_basis": "Neil confirmed all baboon photographs were taken in Maasai Mara on 2026-10-15"
   },
   {
     "image": "assets/photos/neil-42.webp",
@@ -583,8 +587,9 @@
     "title": "Held close",
     "category": "wildlife",
     "region": "kenya",
-    "location": "Kenya",
-    "location_precision": "regional"
+    "location": "Maasai Mara, Kenya",
+    "location_precision": "confirmed",
+    "location_basis": "Neil confirmed all baboon photographs were taken in Maasai Mara on 2026-10-15"
   },
   {
     "image": "assets/photos/neil-43.webp",
@@ -601,8 +606,9 @@
     "title": "Face to face",
     "category": "wildlife",
     "region": "kenya",
-    "location": "Kenya",
-    "location_precision": "regional"
+    "location": "Maasai Mara, Kenya",
+    "location_precision": "confirmed",
+    "location_basis": "Neil confirmed all baboon photographs were taken in Maasai Mara on 2026-10-15"
   },
   {
     "image": "assets/photos/neil-45.webp",
