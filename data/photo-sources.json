@@ -424,5 +424,37 @@
     "category": "landscapes",
     "region": "montenegro",
     "original_archive": "drive-download-20261015T001033Z-1-001.zip"
+  },
+  {
+    "image": "assets/photos/montserrat-03.webp",
+    "original_filename": "IMG_4343.HEIC",
+    "title": "Along the mountain wall",
+    "category": "landscapes",
+    "region": "montserrat",
+    "original_archive": "drive-download-20261015T001137Z-1-001.zip"
+  },
+  {
+    "image": "assets/photos/montserrat-07.webp",
+    "original_filename": "IMG_4339.HEIC",
+    "title": "The road into the hills",
+    "category": "landscapes",
+    "region": "montserrat",
+    "original_archive": "drive-download-20261015T001137Z-1-001.zip"
+  },
+  {
+    "image": "assets/photos/montserrat-11.webp",
+    "original_filename": "IMG_4357.HEIC",
+    "title": "A valley under the clouds",
+    "category": "landscapes",
+    "region": "montserrat",
+    "original_archive": "drive-download-20261015T001137Z-1-001.zip"
+  },
+  {
+    "image": "assets/photos/montserrat-12.webp",
+    "original_filename": "IMG_4349.HEIC",
+    "title": "Stone below the peaks",
+    "category": "landscapes",
+    "region": "montserrat",
+    "original_archive": "drive-download-20261015T001137Z-1-001.zip"
   }
 ]
