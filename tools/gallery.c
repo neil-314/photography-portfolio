@@ -5,7 +5,7 @@
 
 #define LIMIT 256
 #define LINE 16384
-#define FIELDS 12
+#define FIELDS 14
 typedef struct { char *field[FIELDS]; } Photo;
 static Photo photos[LIMIT];
 static size_t count;
@@ -55,7 +55,7 @@ static int read_photos(const char *path) {
             if (end) cursor = end + 1;
         }
         const char *category = photos[count].field[2], *url = photos[count].field[3];
-        if (strcmp(category, "birds") && strcmp(category, "mammals") && strcmp(category, "landscapes")) goto invalid;
+        if (strcmp(category, "wildlife") && strcmp(category, "landscapes") && strcmp(category, "water") && strcmp(category, "architecture")) goto invalid;
         const char *region = photos[count].field[6];
         if (!region_label(region)) goto invalid;
         if (strncmp(url, "https://", 8) && strncmp(url, "assets/photos/", 14)) goto invalid;
@@ -63,12 +63,14 @@ static int read_photos(const char *path) {
         long width = strtol(photos[count].field[10], &end_width, 10);
         long height = strtol(photos[count].field[11], &end_height, 10);
         if (*end_width || *end_height || width <= height || height < 1 || width > 20000) goto invalid;
+        const char *precision = photos[count].field[13];
+        if (strcmp(precision, "confirmed") && strcmp(precision, "identified") && strcmp(precision, "regional")) goto invalid;
         count++;
     }
     if (ferror(in) || !count) goto invalid;
     fclose(in); return 1;
 invalid:
-    fprintf(stderr, "Invalid photo manifest near entry %zu (12 nonempty tab-separated fields, valid region, and horizontal dimensions required).\n", count + 1);
+    fprintf(stderr, "Invalid photo manifest near entry %zu (14 nonempty tab-separated fields, valid category/location, and horizontal dimensions required).\n", count + 1);
     fclose(in); return 0;
 }
 static void image(Photo *p, int eager) {
@@ -88,22 +90,28 @@ static void gallery(void) {
     for (size_t i = 0; i < count; i++) {
         Photo *p = &photos[i];
         fputs("<article class=\"encounter\" data-category=\"", stdout); escape(p->field[2]);
-        fputs("\" data-location=\"", stdout); escape(p->field[6]);
         printf("\"><button class=\"image-open\" popovertarget=\"view-%zu\" aria-label=\"Enlarge ", i + 1);
         escape(p->field[1]); fputs(" photograph\">", stdout); image(p, i == 0);
         fputs("</button><div class=\"frame-label\"><span>", stdout);
         printf("%02zu</span><h2>", i + 1); escape(p->field[0]);
         fputs("</h2><span>", stdout); escape(p->field[1]);
         fputs("</span></div><div class=\"photo-notes\"><span class=\"place\">", stdout);
-        escape(region_label(p->field[6]));
+        escape(p->field[12]);
         fputs("</span><details><summary>Frame notes +</summary><dl>", stdout);
+        fputs("<dt>Location</dt><dd>", stdout); escape(p->field[12]); fputs("</dd>", stdout);
         for (size_t f = 7; f < 10; f++) {
             printf("<dt>%s</dt><dd>", names[f - 7]); escape(p->field[f]); fputs("</dd>", stdout);
         }
-        fputs("</dl><p>Photographed &amp; edited by Neil.</p></details></div>", stdout);
-        printf("<div class=\"photo-viewer\" id=\"view-%zu\" popover><div class=\"viewer-bar\"><span>", i + 1);
+        fputs("</dl>", stdout);
+        if (!strcmp(p->field[13], "regional")) fputs("<p>Exact shooting spot not recorded.</p>", stdout);
+        if (!strcmp(p->field[13], "identified")) fputs("<p>Location identified from visible landmarks; not confirmed by GPS.</p>", stdout);
+        fputs("<p>Photographed &amp; edited by Neil.</p></details></div>", stdout);
+        printf("<div class=\"photo-viewer\" id=\"view-%zu\" popover><div class=\"viewer-bar\"><div><span class=\"viewer-title\">", i + 1);
         escape(p->field[0]);
-        printf("</span><button popovertarget=\"view-%zu\" popovertargetaction=\"hide\">Close ×</button></div>", i + 1);
+        fputs("</span><span class=\"viewer-location\">", stdout); escape(p->field[12]);
+        if (!strcmp(p->field[13], "identified")) fputs(" · visual match", stdout);
+        if (!strcmp(p->field[13], "regional")) fputs(" · exact spot unconfirmed", stdout);
+        printf("</span></div><button popovertarget=\"view-%zu\" popovertargetaction=\"hide\">Close ×</button></div>", i + 1);
         image(p, 0);
         printf("<div class=\"viewer-nav\"><span>FRAME %02zu / %02zu</span><span>Photographed &amp; edited by Neil</span><span>Esc to return</span></div></div></article>\n", i + 1, count);
     }
