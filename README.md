@@ -1,6 +1,6 @@
 # Photography Portfolio
 
-Private photographic journal for Neil / @neiltakesflicks. Every photograph was taken and edited by Neil. Editing inquiries: paineil.1008@gmail.com.
+Photography portfolio for Neil / @neiltakesflicks. Every photograph was taken and edited by Neil. Editing inquiries: paineil.1008@gmail.com.
 
 ## Experience and stack
 
@@ -48,6 +48,10 @@ User-supplied destinations are retained. Fourteen photos have more specific visu
 
 Every full and responsive WebP contains a subtle lower-right neil's photos watermark rendered into its pixels. Original files remain untouched outside the repository. Derivatives omit EXIF, including GPS. The C generator renders the prepared manifest; it does not extract EXIF, watermark, or compress photos itself.
 
-## Checks and privacy
+## Checks and publishing
 
-GitHub Actions compiles with strict warnings and address/undefined-behaviour sanitizers, checks invalid input and HTML escaping, enforces horizontal dimensions, verifies generated HTML is current, and creates a seven-day downloadable artifact. No deployment workflow or GitHub Pages is configured. The repository remains private; the older hosted Sites draft is separate.
+GitHub Actions compiles with strict warnings and address/undefined-behaviour sanitizers, checks invalid input and HTML escaping, enforces horizontal dimensions, verifies generated HTML is current, and creates a seven-day downloadable artifact. No deployment workflow or GitHub Pages is configured. This repository is public. The earlier hosted Sites draft is separate. Public repository access does not publish a live website automatically.
+
+## Photo ownership
+
+All photographs and edits are copyright Neil. All rights reserved. Public access to this repository does not grant permission to reuse the photographs. Contact paineil.1008@gmail.com for editing inquiries or photo-use requests.
