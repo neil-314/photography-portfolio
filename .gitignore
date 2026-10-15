@@ -5,3 +5,8 @@ Thumbs.db
 
 /gallery
 /gallery.exe
+/.vercel/
+/public/
+
+.vercel
+.env*

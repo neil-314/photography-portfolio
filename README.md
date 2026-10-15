@@ -50,8 +50,12 @@ Every full and responsive WebP contains a subtle lower-right neil's photos water
 
 ## Checks and publishing
 
-GitHub Actions compiles with strict warnings and address/undefined-behaviour sanitizers, checks invalid input and HTML escaping, enforces horizontal dimensions, verifies generated HTML is current, and creates a seven-day downloadable artifact. No deployment workflow or GitHub Pages is configured. This repository is public. The earlier hosted Sites draft is separate. Public repository access does not publish a live website automatically.
+GitHub Actions compiles with strict warnings and address/undefined-behaviour sanitizers, checks invalid input and HTML escaping, enforces horizontal dimensions, verifies generated HTML is current, and creates a seven-day downloadable artifact. The public repository is connected to Vercel for automatic production deployment from main. The earlier hosted Sites draft is separate.
 
 ## Photo ownership
 
 All photographs and edits are copyright Neil. All rights reserved. Public access to this repository does not grant permission to reuse the photographs. Contact paineil.1008@gmail.com for editing inquiries or photo-use requests.
+
+## Vercel hosting
+
+Vercel publishes the checked-in HTML, CSS, and watermarked photo assets. The build copies only these website files into public/. The C generator remains part of the authoring workflow and GitHub Actions validation. Push regenerated index.html together with manifest or template changes. The live website URL is listed in the repository About section.
