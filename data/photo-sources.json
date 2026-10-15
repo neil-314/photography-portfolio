@@ -185,9 +185,10 @@
     "original_filename": "IMG_3148.JPG",
     "title": "Before takeoff",
     "category": "landscapes",
-    "region": "alberta",
-    "location": "Alberta, Canada",
-    "location_precision": "regional"
+    "region": "kenya",
+    "location": "Maasai Mara, Kenya",
+    "location_precision": "confirmed",
+    "location_basis": "Confirmed by Neil in chat on 2026-10-15"
   },
   {
     "image": "assets/photos/iceland-05.webp",
